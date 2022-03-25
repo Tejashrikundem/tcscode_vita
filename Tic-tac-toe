@@ -1,0 +1,49 @@
+def tictac(a, ch):
+ match = [[0, 1, 2], [3, 4, 5],
+   [6, 7, 8], [0, 3, 6],
+   [1, 4, 7], [2, 5, 8],
+   [0, 4, 8], [2, 4, 6]]
+
+ for i in range(8):
+  if(a[match[i][0]] == ch and
+   a[match[i][1]] == ch and
+   a[match[i][2]] == ch):
+   return True
+ return False
+
+def game(a):
+ 
+ xc = a.count('X')
+ oc = a.count('O')
+ 
+ 
+ if(xc == oc+1 or xc == oc):
+  
+  if tictac(a, 'O'):
+   
+   if tictac(a, 'X'):
+    return "NO"
+
+   
+   if xc == oc:
+    return "YES"
+
+  
+  if tictac(a, 'X') and xc != oc+1:
+   return "NO"
+  
+  
+  if not tictac(a, 'O'):
+   return "YES"
+  
+ 
+ return "NO"
+
+
+
+a=[]
+for j in range(3):
+        w = input()
+        for k in w:
+                a.append(k)
+print(game(a),end="")
